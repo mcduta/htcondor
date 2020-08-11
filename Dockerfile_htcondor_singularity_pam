@@ -1,0 +1,6 @@
+FROM mcduta/htcondor-singularity:latest
+
+#
+# === NSS module
+RUN yum -y install nss-pam-ldapd && \
+    sed -i 's/sss/ldap/g' /etc/nsswitch.conf

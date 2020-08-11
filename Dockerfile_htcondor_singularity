@@ -1,0 +1,8 @@
+FROM mcduta/htcondor:latest
+
+
+#
+# === Singularity
+#
+RUN yum update -y && yum install -y epel-release && \
+    yum update -y && yum install -y singularity-runtime singularity

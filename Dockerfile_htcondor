@@ -1,0 +1,23 @@
+FROM centos:7
+
+
+#
+# === dependencies
+#
+RUN yum install -y wget
+
+
+#
+# === HTCondor
+#
+
+# get repo file
+RUN cd /etc/yum.repos.d && \
+    wget http://research.cs.wisc.edu/htcondor/yum/repo.d/htcondor-stable-rhel7.repo
+
+# import key
+RUN wget http://research.cs.wisc.edu/htcondor/yum/RPM-GPG-KEY-HTCondor && \
+    rpm --import RPM-GPG-KEY-HTCondor
+
+# HTCondor
+RUN yum install -y condor

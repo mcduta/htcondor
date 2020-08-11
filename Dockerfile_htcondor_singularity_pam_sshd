@@ -1,0 +1,8 @@
+FROM mcduta/htcondor-singularity-pam:latest
+
+# install ssh client and server
+RUN yum -y install openssh-clients openssh-server && \
+    yum -y clean all
+
+# generate keys (centos does not autogen)
+RUN /usr/bin/ssh-keygen -A
